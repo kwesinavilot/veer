@@ -1,5 +1,6 @@
 <?php
-//die(print_r($_GET));
-
-header("Location: https://www.google.com/search?q=pope nanal");
+    /**Redirect to the new location
+     * For now, just make a simple Google search
+     */
+    header("Location: https://www.google.com/search?q=pope nanal");
 ?>
