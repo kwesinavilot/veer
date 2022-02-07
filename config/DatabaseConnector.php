@@ -14,35 +14,18 @@
         public $connection;
         private $connected;
         private $dataSourceName;
+
+        function __construct() {
+            $this->serverName = "localhost";  //Default server name is 'localhost', change it if necessary.
+            $this->databaseName = "veer";
+            $this->userName = "navilot";
+            $this->password = "sltd";
+        }
         
-        public function createConnection($userType) {
+        public function createConnection() {
             try {
-                $this->serverName = "localhost";  //Default server name is 'localhost', change it if necessary.
-                $this->databaseName = "dwadipa";
-                $this->userName = $userType;
-
-                switch ($userType) {
-                    case 'public':
-                    $this->password = "00001234";
-                    break;
-
-                    case 'client':
-                    $this->password = "clients@Naviware.0705";
-                    break;
-
-                    case 'admin':
-                    $this->password = "el~admin@Naviware.0420";
-                    break;
-                    
-                    default:
-                    $this->userName = "navilot";
-                    $this->password = "sltd";
-                    break;
-                }
-                
                 //MySQLi Connection
                 $this->connection  = new mysqli($this->serverName, $this->userName, $this->password, $this->databaseName);
-                $this->connection  = new mysqli("localhost", "navilot", "sltd", "dwadipa");
                 $this->connected = true;
 
                 //PDO Connection
@@ -65,40 +48,40 @@
         }
 
         public function getConnection() {
-            return $this -> connection;
+            return $this->connection;
         }
 
         public function closeConnection() {
             try {
                 unset($this->connected);
-                $connection->close();  
+                $this->connection->close();
             } catch (Exception $error) {
                 die("Error in creating connection: " . mysqli_connect_error() . mysql_errno);
             }
         }
 
         public function setServerName($newServerName) {
-            $this -> serverName = $newServerName;
+            $this->serverName = $newServerName;
         }
 
         public function setUserName($newUserName) {
-            $this ->  userName = $newUserName;
+            $this-> userName = $newUserName;
         }
 
         public function setPassword($newPassword) {
-            $this -> serverName = $newPassword;
+            $this->serverName = $newPassword;
         }
 
         public function getServerName() {
-            return $this -> serverName;
+            return $this->serverName;
         }
 
         public function getUserName() {
-            return $this -> userName;
+            return $this->userName;
         }
 
         public function getPassword() {
-            return $this -> password;
+            return $this->password;
         }
     }
 ?>

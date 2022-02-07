@@ -1,8 +1,7 @@
 <?php
 require "config/configurations.php";
 
-    /**Redirect to the new location
-     * For now, just make a simple Google search
-     */
-//    header("Location: https://www.google.com/search?q=pope nanal");
+if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    print "<p>We just got a request</p>";
+}
 ?>

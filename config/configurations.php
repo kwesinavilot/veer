@@ -11,6 +11,12 @@
     //Email address for customer services and contacts
     $contact_email = "";
 
+    //Set the path to the MySQL configuration file also as a constant
+    const MYSQL = 'config/DatabaseConnector.php';
+
+    //Set path to the Dwadipa Core
+    const ENGINE = 'engine/';
+
     //Determine whether we're running on a local server or a live server
     if (stristr($_SERVER['HTTP_HOST'], 'local') || (substr($_SERVER['HTTP_HOST'], 0, 7) == '192.168')) {
         //die("We're running on a local server");
@@ -27,22 +33,10 @@
 
         //Set the base url of the application
         define('BASE_URL', 'http://localhost/Veer/');
-
-        //Set the path to the MySQL configuration file also as a constant
-        define('MYSQL', 'config/DatabaseConnector.php');
-
-        //Set path to the Dwadipa Core
-        define('ENGINE', '../engine/');
         
     } else {
         //Set the base url of the application
         define('BASE_URL', 'http://www.dwadipa.com/');
-
-        //Set the path to the MySQL configuration file also as a constant
-        define('MYSQL', '/engine/DatabaseConnector.php');
-
-        //Set path to the Dwadipa Core
-        define('ENGINE', '../engine/');
     }
 
     /**
@@ -59,12 +53,15 @@
         $debug = FALSE;
     }
 
-    //Set the session name to Veer
-    session_name('Veer_redirect');
-
     //get error configuration
     require "config/errors.php";
 
+    /**
+     * If you need session functionality, then uncomment below
+     * to enable it.
+     */
+    //Set the session name to Veer
+    //session_name('Veer_redirect');
     //Start the session
-    session_start();
+    //session_start();
 ?>
