@@ -1,4 +1,4 @@
-## UTAG-UCC Welfare
+## Veer
 
 Veer is a very simple redirector written in PHP.
 
