@@ -1,4 +1,5 @@
 <?php
+require "config/database.php";     //get the database credentials from the config file
 
     /**
      * This class handles all the connections and communications between the server 
@@ -16,10 +17,13 @@
         private $dataSourceName;
 
         function __construct() {
-            $this->serverName = "localhost";  //Default server name is 'localhost', change it if necessary.
-            $this->databaseName = "veer";
-            $this->userName = "navilot";
-            $this->password = "sltd";
+            $this->serverName = SERVER;  //Default server name is 'localhost', change it if necessary.
+            $this->databaseName = DATABASE;
+            $this->userName = USER;
+            $this->password = PASSWORD;
+
+            //create the connection right away
+            $this->createConnection();
         }
         
         public function createConnection() {
@@ -34,8 +38,8 @@
                 // $this->connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 // $this->connected = true;
             } catch (Exception $e){
-                die("Error in creating connection: " . mysqli_connect_error() . mysql_errno);
-                //die("Error in creating connection: " . $e->getMessage());
+                //die("Error in creating connection: " . mysqli_connect_error() . mysql_errno);
+                die("Error in creating connection: " . $e->getMessage());
             }
         }
 
@@ -60,6 +64,7 @@
             }
         }
 
+        //Auxiliary methods just in case they are needed
         public function setServerName($newServerName) {
             $this->serverName = $newServerName;
         }

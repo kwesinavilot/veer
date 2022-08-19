@@ -5,9 +5,10 @@
  * errorMessage is the error message from PHP
  * errorFile is the name of the file in which the error occured
  * errorLine is the line on which the error occured in the file
- * errorVariables is an array of every variable that existed when the error occured
+ * errorVariables is an array of every variable that existed when the error occured (REMOVED FOR THE MOMENT)
+ * , $errorVariables
  */
-function errorHandler($errorNumber, $errorMessage, $errorFile, $errorLine, $errorVariables) {
+function errorHandler($errorNumber, $errorMessage, $errorFile, $errorLine) {
     global $debug, $errors_email;
 
     //Build the error message
@@ -17,7 +18,7 @@ function errorHandler($errorNumber, $errorMessage, $errorFile, $errorLine, $erro
     $message .= "Date/Time: " . date('n-j-Y H:i:s') . "\n<br />";
 
     //Append $errorVariables to the $message
-    $message .= "<pre>" . print_r($errorVariables, 1) . "</pre>\n<br />";
+    //$message .= "<pre>" . print_r($errorVariables, 1) . "</pre>\n<br />";
 
     //Add everything that happened before the error.
     //$message .= "<pre>" . print_r(debug_backtrace(), 1) . "</pre>\n";
