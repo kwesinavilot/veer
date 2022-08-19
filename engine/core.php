@@ -3,7 +3,10 @@ require "DatabaseConnector.php";
 
 class Core
 {
-    //private $database;
+    private $database;
+    private $browserName;
+    private $operatingSystem;
+    private $device;
 
 //    function __construct() {
 //
@@ -30,7 +33,7 @@ class Core
 
             if ($connection->query($query)) {
                 //if we are able to insert in the database, proceed to redirect
-                redirect();
+                $this->redirect();
             } else {
                 die ("<p>Something fatal occured: </p>" . $connection->error);
             }
@@ -39,10 +42,14 @@ class Core
 
     function redirect()
     {
-        /**Redirect to the new location
+        /**
+         * Redirect to the new location
          * For now, just make a simple Google search
+         * Check APP config file to set the intended location
          */
 
         die(header("Location: https://www.google.com/search?q=pope nanal"));
     }
+
+
 }
