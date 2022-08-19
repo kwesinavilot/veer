@@ -6,7 +6,7 @@
  */
 
 //Set the path to the MySQL configuration file also as a constant
-const CORE = 'engine/core.php';
+const CORE = 'engine/Core.php';
 
 //Set path to the Dwadipa Core
 const ENGINE = 'engine/';

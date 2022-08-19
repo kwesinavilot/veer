@@ -168,6 +168,15 @@ class UserAgentDetective
 
     function getUserAgentInfo()
     {
+        return [
+            "browser" => $this->getBrowser(),
+            "version" => $this->getVersion(),
+            "os" => $this->getPlatform()
+        ];
+    }
+
+    function toString()
+    {
         return "<strong>Browser User Agent String:</strong> {$this->getUserAgent()}<br/>\n" .
             "<strong>Browser Name:</strong> {$this->getBrowser()}<br/>\n" .
             "<strong>Browser Version:</strong> {$this->getVersion()}<br/>\n" .

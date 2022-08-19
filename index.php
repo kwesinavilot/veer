@@ -9,8 +9,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 //    redirect();
 //    $core = new Core();
     //$core->storeInDatabase();
+
     $userAgent = new UserAgentDetective();
-    die($userAgent->detect());
-//    die(print_r($core->getUserAgentDetails()));
+    $userAgent = $userAgent->detect();
+//    die(print_r($userAgent));
+
+    $ipAddress = $_SERVER['REMOTE_ADDR'];
+//    $requestFrom = $_SERVER['HTTP_REFERER'];
+    die(print_r($_SERVER));
+
+    $core = new Core();
+    $core->storeInDatabase($userAgent);
 }
 ?>

@@ -26,7 +26,7 @@ function errorHandler($errorNumber, $errorMessage, $errorFile, $errorLine) {
     //If the site is not live, show the errors in the browser
     if ($debug) {
         //nl2br turns newlines to break tags
-        echo "<div style='color:red;'>" . nl2br($message) . "</div>";
+        die("<div style='color:red;'>" . nl2br($message) . "</div>");
     } else {
         /**
          * If the site is live,
