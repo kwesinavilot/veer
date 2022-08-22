@@ -3,15 +3,6 @@ require "DatabaseConnector.php";
 
 class Core
 {
-    private $database;
-    private $browserName;
-    private $operatingSystem;
-    private $device;
-
-//    function __construct() {
-//
-//    }
-
     function storeInDatabase($requestFrom, $ipAddress, $userAgent)
     {
         //Instantiate the database connected and create a connection to the database
@@ -24,20 +15,20 @@ class Core
 
             $request_from = $connection->real_escape_string($requestFrom);
             $ip_address = $connection->real_escape_string($ipAddress);
-//            $device = $connection->real_escape_string($userAgent['device']);
+            $device = $connection->real_escape_string($userAgent['device']);
             $platform = $connection->real_escape_string($userAgent['os']);
             $browser = $connection->real_escape_string($userAgent['browser']);
             $browserVersion = $connection->real_escape_string($userAgent['version']);
-//
-//            $query = "INSERT INTO redirects (request_from, ip_address, device, platform, software)" .
-//                "VALUES ('{$request_from}', '{$ip_address}', '{$device}', '{$platform}', '{$browser}');";
-//
-//            if ($connection->query($query)) {
-//                //if we are able to insert in the database, proceed to redirect
-//                $this->redirect();
-//            } else {
-//                die ("<p>Something fatal occured: </p>" . $connection->error);
-//            }
+
+            $query = "INSERT INTO redirects (request_from, ip_address, device_type, operating_system, browser, version)" .
+                "VALUES ('{$request_from}', '{$ip_address}', '{$device}', '{$platform}', '{$browser}', '{$browserVersion}');";
+
+            if ($connection->query($query)) {
+                //if we are able to insert in the database, proceed to redirect
+                $this->redirect();
+            } else {
+                die ("<p>Something fatal occured: </p>" . $connection->error);
+            }
         }
     }
 
@@ -49,7 +40,7 @@ class Core
          * Check APP config file to set the intended location
          */
 
-        die(header("Location: https://www.google.com/search?q=pope nanal"));
+        die(header("Location: https://www.google.com/search?q=kwesi navilot"));
     }
 
 

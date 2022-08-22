@@ -187,7 +187,7 @@ class UserAgentDetective
             "version" => $this->getVersion(),
             "os" => $this->getPlatform(),
             "device" => $this->getDevice(),
-            "entire" => $this->userAgent
+//            "entire" => $this->userAgent
         ];
     }
 
