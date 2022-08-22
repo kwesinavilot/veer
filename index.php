@@ -8,10 +8,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     $userAgent = new UserAgentDetective();
     $userAgent = $userAgent->detect();
-//    die(print_r($userAgent));
 
     $ipAddress = $_SERVER['REMOTE_ADDR'];
-    $requestFrom = isset($_GET['from']) ?: "Unknown";
+    $requestFrom = $_GET['from'] ?? "Unknown";
 
     $core = new Core();
     $core->storeInDatabase($requestFrom, $ipAddress, $userAgent);
