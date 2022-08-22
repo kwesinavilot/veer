@@ -22,11 +22,12 @@ class Core
         } else {
             $connection = $database->getConnection();
 
-//            $request_from = $connection->real_escape_string();
-//            $ip_address = $connection->real_escape_string();
-//            $device = $connection->real_escape_string();
-//            $platform = $connection->real_escape_string();
-//            $browser = $connection->real_escape_string();
+            $request_from = $connection->real_escape_string($requestFrom);
+            $ip_address = $connection->real_escape_string($ipAddress);
+//            $device = $connection->real_escape_string($userAgent['device']);
+            $platform = $connection->real_escape_string($userAgent['os']);
+            $browser = $connection->real_escape_string($userAgent['browser']);
+            $browserVersion = $connection->real_escape_string($userAgent['version']);
 //
 //            $query = "INSERT INTO redirects (request_from, ip_address, device, platform, software)" .
 //                "VALUES ('{$request_from}', '{$ip_address}', '{$device}', '{$platform}', '{$browser}');";

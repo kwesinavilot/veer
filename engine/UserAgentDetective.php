@@ -7,6 +7,7 @@ class UserAgentDetective
     private $browserName;
     private $browserVersion;
     private $operatingSystem;
+    private $device;
 
     private $browserList = array(
         'Trident\/7.0' => 'Internet Explorer 11',
@@ -96,6 +97,7 @@ class UserAgentDetective
     {
         $this->detectBrowser();
         $this->detectPlatform();
+        $this->detectDevice();
 
         return $this->getUserAgentInfo();
     }
@@ -145,6 +147,14 @@ class UserAgentDetective
         }
     }
 
+    function detectDevice() {
+        if ($this->operatingSystem == "iPad|iPod|iPhone|Android|Nokia|BlackBerry") {
+            $this->device = "Mobile";
+        } else {
+            $this->device = "Desktop";
+        }
+    }
+
     function getBrowser()
     {
         return $this->browserName;
@@ -161,25 +171,32 @@ class UserAgentDetective
 
     }
 
+    function getDevice() {
+        return $this->device;
+    }
+
     function getUserAgent()
     {
         return $this->userAgent;
     }
 
-    function getUserAgentInfo()
+    function getUserAgentInfo(): array
     {
         return [
             "browser" => $this->getBrowser(),
             "version" => $this->getVersion(),
-            "os" => $this->getPlatform()
+            "os" => $this->getPlatform(),
+            "device" => $this->getDevice(),
+            "entire" => $this->userAgent
         ];
     }
 
-    function toString()
+    function toString(): string
     {
         return "<strong>Browser User Agent String:</strong> {$this->getUserAgent()}<br/>\n" .
             "<strong>Browser Name:</strong> {$this->getBrowser()}<br/>\n" .
             "<strong>Browser Version:</strong> {$this->getVersion()}<br/>\n" .
-            "<strong>Platform:</strong> {$this->getPlatform()}<br/>";
+            "<strong>Platform:</strong> {$this->getPlatform()}<br/>" .
+            "<strong>Device:</strong> {$this->getDevice()}<br/>";
     }
 }

@@ -11,5 +11,6 @@ CREATE TABLE redirects (
     device_type varchar(100) NOT NULL,
     operating_system varchar(100) NOT NULL,
     browser varchar(100) NOT NULL,
+    version varchar(18) NOT NULL,
     event_date TIMESTAMP
 );
