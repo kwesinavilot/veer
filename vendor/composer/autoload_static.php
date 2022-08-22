@@ -6,20 +6,6 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit829dffbefc2c309db5b8de3839e3d63e
 {
-    public static $prefixLengthsPsr4 = array (
-        'S' => 
-        array (
-            'Sinergi\\BrowserDetector\\' => 24,
-        ),
-    );
-
-    public static $prefixDirsPsr4 = array (
-        'Sinergi\\BrowserDetector\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/sinergi/browser-detector/src',
-        ),
-    );
-
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
     );
@@ -27,8 +13,6 @@ class ComposerStaticInit829dffbefc2c309db5b8de3839e3d63e
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit829dffbefc2c309db5b8de3839e3d63e::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit829dffbefc2c309db5b8de3839e3d63e::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInit829dffbefc2c309db5b8de3839e3d63e::$classMap;
 
         }, null, ClassLoader::class);

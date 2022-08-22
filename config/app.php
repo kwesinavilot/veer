@@ -11,7 +11,7 @@ const CORE = 'engine/Core.php';
 //Set path to the Dwadipa Core
 const ENGINE = 'engine/';
 
-const REDIRECT_TO = "www.dwadipa.com";
+const REDIRECT_TO = "https://www.dwadipa.com";
 
 //Email address to which errors are sent
 $errors_email = "teamserviceskeep@gmail.com";

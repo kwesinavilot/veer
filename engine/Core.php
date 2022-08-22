@@ -39,8 +39,8 @@ class Core
          * For now, just make a simple Google search
          * Check APP config file to set the intended location
          */
-
-        die(header("Location: https://www.google.com/search?q=kwesi navilot"));
+        //die(https://www.google.com/search?q=kwesinavilot"));
+        die(header("Location: " . REDIRECT_TO));
     }
 
 
